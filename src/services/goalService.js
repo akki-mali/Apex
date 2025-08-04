@@ -22,44 +22,45 @@ class GoalService {
     return newGoal;
   }
 
-  updateGoalStatus(goalId, status) {
-    const goals = this.getGoals();
-    const goalIndex = goals.findIndex(g => g.id === goalId);
-    
-    if (goalIndex !== -1) {
-      goals[goalIndex].status = status;
-      goals[goalIndex].updatedAt = new Date().toISOString();
-      
-      if (status === 'completed') {
-        goals[goalIndex].completedAt = new Date().toISOString();
-        // Mark all key results as completed
-        goals[goalIndex].keyResults = goals[goalIndex].keyResults.map(kr => ({
-          ...kr,
-          completed: true
-        }));
-      } else {
-        // Mark all key results as incomplete when reopening
-        goals[goalIndex].keyResults = goals[goalIndex].keyResults.map(kr => ({
-          ...kr,
-          completed: false
-        }));
-        delete goals[goalIndex].completedAt;
-      }
-      
-      localStorage.setItem(this.storageKey, JSON.stringify(goals));
-    }
-  }
 
-  updateKeyResult(goalId, keyResultId) {
+
+  updateKeyResultStatus(goalId, keyResultId) {
     const goals = this.getGoals();
     const goalIndex = goals.findIndex(g => g.id === goalId);
     
     if (goalIndex !== -1) {
       const keyResultIndex = goals[goalIndex].keyResults.findIndex(kr => kr.id === keyResultId);
       if (keyResultIndex !== -1) {
+        // Toggle the completion status of the key result
         goals[goalIndex].keyResults[keyResultIndex].completed = !goals[goalIndex].keyResults[keyResultIndex].completed;
+        goals[goalIndex].updatedAt = new Date().toISOString();
+        
+        // Check if all key results are completed
+        const allCompleted = goals[goalIndex].keyResults.every(kr => kr.completed);
+        
+        // Update goal status based on key results completion
+        if (allCompleted && goals[goalIndex].status !== 'completed') {
+          goals[goalIndex].status = 'completed';
+          goals[goalIndex].completedAt = new Date().toISOString();
+        } else if (!allCompleted && goals[goalIndex].status === 'completed') {
+          goals[goalIndex].status = 'in-progress';
+          delete goals[goalIndex].completedAt;
+        }
+        
         localStorage.setItem(this.storageKey, JSON.stringify(goals));
       }
+    }
+  }
+
+  submitGoal(goalId) {
+    const goals = this.getGoals();
+    const goalIndex = goals.findIndex(g => g.id === goalId);
+    
+    if (goalIndex !== -1) {
+      goals[goalIndex].status = 'submitted';
+      goals[goalIndex].submittedAt = new Date().toISOString();
+      goals[goalIndex].updatedAt = new Date().toISOString();
+      localStorage.setItem(this.storageKey, JSON.stringify(goals));
     }
   }
 

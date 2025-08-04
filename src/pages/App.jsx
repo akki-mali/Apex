@@ -16,15 +16,15 @@ const App = () => {
     setGoals(goalService.getGoals());
   };
 
-  const updateGoalStatus = (goalId, status) => {
-    goalService.updateGoalStatus(goalId, status);
+const updateKeyResultStatus = (goalId, keyResultId) => {
+    goalService.updateKeyResultStatus(goalId, keyResultId);
     setGoals(goalService.getGoals());
   };
 
-// const updateKeyResultStatus = (goalId, keyResultId) => {
-//     goalService.updateKeyResultStatus(goalId, keyResultId);
-//     setGoals(goalService.getGoals());
-//   };
+  const submitGoal = (goalId) => {
+    goalService.submitGoal(goalId);
+    setGoals(goalService.getGoals());
+  };
 
   return (
     <div className='min-h-screen bg-gray-50'>
@@ -37,7 +37,7 @@ const App = () => {
 
       <main className='mx-auto max-w-6xl py-8 px-4'> 
         {activeTab === 'goals' && (
-         <GoalsSection goals={goals} onAddGoal={addGoal} onUpdateGoalStatus={updateGoalStatus} onUpdateKeyResultStatus={updateKeyResultStatus}/>
+         <GoalsSection goals={goals} onAddGoal={addGoal} onUpdateKeyResultStatus={updateKeyResultStatus} onSubmitGoal={submitGoal}/>
         )}
 
       {activeTab === 'advisors' && (
