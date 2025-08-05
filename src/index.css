@@ -44,4 +44,6 @@ body {
   .status-completed {
     @apply bg-green-100 text-green-700;
   }
-  
+  .card {
+    @apply bg-white rounded-xl p-6 shadow-sm border border-gray-200 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+  }

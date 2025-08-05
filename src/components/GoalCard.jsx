@@ -48,34 +48,34 @@ const GoalCard = ({ goal, onToggleKeyResult, onSubmitGoal }) => {
 
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700">Key Results</h4>
-            {goal.keyResults.map((keyResult) => (
-            <div key={keyResult.id} className="flex items-start space-x-3">
-              <button
-                onClick={() => !isSubmitted && onToggleKeyResult(goal.id, keyResult.id)}
-                className={`cursor-pointer flex-shrink-0 mt-0.5 transition-colors ${
-                  isSubmitted 
-                    ? 'cursor-default'
-                    : keyResult.completed
-                    ? 'text-green-600 hover:text-green-700'
-                    : 'text-gray-400 hover:text-gray-600'
-                }`}
-                disabled={isSubmitted}
-              >
-                {keyResult.completed ? (
-                  <CheckCircle className="w-5 h-5" />
-                ) : (
-                  <Circle className="w-5 h-5" />
-                )}
-              </button>
-              <p className={`text-sm leading-relaxed ${
-                keyResult.completed 
-                  ? 'text-gray-500 line-through' 
-                  : 'text-gray-700'
-              }`}>
-                {keyResult.description}
-              </p>
-            </div>
-          ))}
+              {goal.keyResults.map((keyResult) => (
+                <div key={keyResult.id} className="flex items-start space-x-3">
+                  <button
+                    onClick={() => !isSubmitted && onToggleKeyResult(goal.id, keyResult.id)}
+                    className={`cursor-pointer flex-shrink-0 mt-0.5 transition-colors ${
+                      isSubmitted 
+                        ? 'cursor-default'
+                        : keyResult.completed
+                        ? 'text-green-600 hover:text-green-700'
+                        : 'text-gray-400 hover:text-gray-600'
+                    }`}
+                    disabled={isSubmitted}
+                  >
+                    {keyResult.completed ? (
+                      <CheckCircle className="w-5 h-5" />
+                    ) : (
+                      <Circle className="w-5 h-5" />
+                    )}
+                  </button>
+                  <p className={`text-sm leading-relaxed ${
+                    keyResult.completed 
+                      ? 'text-gray-500 line-through' 
+                      : 'text-gray-700'
+                  }`}>
+                    {keyResult.description}
+                  </p>
+                </div>
+            ))}
         </div>
         </div>
         <div className='mt-auto pt-4'>
