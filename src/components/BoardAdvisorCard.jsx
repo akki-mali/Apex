@@ -35,7 +35,7 @@ const BoardAdvisorCard = ({advisor, onRemove}) =>{
           <MessageCircle size={16} />
           Message
         </button>
-        <button className="btn btn-secondary flex-1">
+        <button className="btn btn-secondary">
           <Calendar size={16} />
           Schedule
         </button>

@@ -12,7 +12,6 @@ const MyBoardSection = ({myBoard, onRemoveFromBoard}) => {
         </h2>
         
         <div className="text-center py-12 text-gray-500">
-          <Star size={48} />
           <h3 className="text-lg font-medium mt-4 mb-2">No advisors in your board yet</h3>
           <p>Browse the advisors section to add world-class mentors to your personal board</p>
         </div>
@@ -32,7 +31,7 @@ const MyBoardSection = ({myBoard, onRemoveFromBoard}) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {myBoard.map(advisor => (
           <BoardAdvisorCard 
             key={advisor.id} 
