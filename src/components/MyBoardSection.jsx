@@ -1,7 +1,24 @@
 import { Star } from 'lucide-react';
-import BoardAdvisorCard from './BoardAdvisorCard'
+import BoardAdvisorCard from './BoardAdvisorCard';
+import Pagination from './Pagination';
+import usePagination from '../hooks/usePagination';
 
 const MyBoardSection = ({myBoard, onRemoveFromBoard}) => {
+  const itemsPerPage = 12; 
+
+  const {
+    currentItems: currentAdvisors,
+    currentPage,
+    totalPages,
+    startIndex,
+    endIndex,
+    totalItems,
+    setCurrentPage,
+  } = usePagination(myBoard, itemsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
   
   if (myBoard.length === 0) {
     return (
@@ -31,8 +48,12 @@ const MyBoardSection = ({myBoard, onRemoveFromBoard}) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {myBoard.map(advisor => (
+      <div className="text-sm text-gray-600 mb-6">
+        Showing {startIndex + 1}-{Math.min(endIndex, totalItems)} of {totalItems} advisors
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        {currentAdvisors.map(advisor => (
           <BoardAdvisorCard 
             key={advisor.id} 
             advisor={advisor}
@@ -40,6 +61,16 @@ const MyBoardSection = ({myBoard, onRemoveFromBoard}) => {
           />
         ))}
       </div>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        totalItems={totalItems}
+        startIndex={startIndex}
+        endIndex={endIndex}
+        itemsPerPage={itemsPerPage}
+      />
     </>
   )
 }
