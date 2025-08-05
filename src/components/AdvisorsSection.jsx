@@ -4,7 +4,6 @@ import AdvisorCard from "./AdvisorCard";
 
 const AdvisorsSection = ({advisors, myBoard, onAddToBoard}) => {
   const [searchTerm, setSearchTerm] = useState('');
-  console.log(myBoard, 'myBoard')
 
   const filteredAdvisors = advisors.filter(advisor => advisor.name.toLowerCase().includes(searchTerm.toLowerCase()));
 

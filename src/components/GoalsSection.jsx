@@ -47,7 +47,7 @@ const GoalsSection = ({goals, onAddGoal, onUpdateKeyResultStatus, onSubmitGoal})
         <h3 className='text-lg font-medium mt-4 mb-2'>No goals yet</h3>
          <p>Start by adding your first SMART goal to begin your journey</p>
       </div>): (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {goals.map(goal => (
             <GoalCard 
               key={goal.id} 

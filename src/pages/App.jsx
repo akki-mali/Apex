@@ -2,6 +2,7 @@ import React,  {useEffect, useState} from 'react';
 import Navigation from '../components/Navigation';
 import GoalsSection from '../components/GoalsSection'; 
 import AdvisorsSection from '../components/AdvisorsSection';
+import MyBoardSection from '../components/MyBoardSection'
 import { goalService } from '../services/goalService';
 import {advisorService} from '../services/advisorService'
 
@@ -66,20 +67,21 @@ const App = () => {
          <GoalsSection goals={goals} onAddGoal={addGoal} onUpdateKeyResultStatus={updateKeyResultStatus} onSubmitGoal={submitGoal}/>
         )}
 
-      {activeTab === 'advisors' && (
-        <AdvisorsSection 
-          advisors={advisors}
-          myBoard={myBoard}
-          onAddToBoard={addToBoard}
-        />
-      )}
+        {activeTab === 'advisors' && (
+          <AdvisorsSection 
+            advisors={advisors}
+            myBoard={myBoard}
+            onAddToBoard={addToBoard}
+          />
+        )}
 
-      {activeTab === 'boards' && (
-        <div className='p-8'>
-          <h2 className='text-2xl font-semibold mb-4'>Boards</h2>
-          <p className='text-gray-700'>Manage your boards.</p> 
-          </div>
-      )}
+        {activeTab === 'boards' && (
+          <MyBoardSection 
+            myBoard={myBoard}
+            onRemoveFromBoard={removeFromBoard}
+          />
+        )}
+
       </main>
     
     </div>

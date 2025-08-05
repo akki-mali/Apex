@@ -4,10 +4,9 @@ const AdvisorCard = ({advisor, isInBoard, onAddToBoard }) => {
     console.log(isInBoard, 'isInBoard')
   return (
     <div className="card text-center">
-      <h3 className="text-lg font-semibold text-gray-900 mb-1">{advisor.name}</h3>
-      <p className="text-sm text-primary-600 font-medium mb-1">{advisor.title}</p>
-      <p className="text-sm text-gray-600 mb-4">{advisor.company}</p>
-      <p className="text-sm text-gray-600 mb-4">{advisor.job_title}</p>
+      <h3 className="text-lg font-bold text-gray-900 mb-1">{advisor.name}</h3>
+      <p className="text-sm text-gray-600 mb-4 font-semibold">{advisor.company}</p>
+      <p className="text-sm text-gray-600 mb-4 font-medium">{advisor.job_title}</p>
       <div className="flex items-center justify-center gap-2 mb-4">
         <div className="flex gap-0.5">
           {[...Array(5)].map((_, i) => (
