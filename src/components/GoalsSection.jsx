@@ -13,8 +13,8 @@ const GoalsSection = ({goals, onAddGoal, onUpdateKeyResultStatus, onSubmitGoal})
   
   return (
     <div>
-      <div className='flex justify-between items-center mb-8'>
-        <h2 className='font-semibold text-3xl text-gray-900 flex items-center gap-3'>
+      <div className='sm:flex justify-between items-center mb-8'>
+        <h2 className='font-semibold text-3xl text-gray-900 flex items-center gap-3 sm:mb-0 mb-3 '>
           <Target size={28} />My SMART Goals
         </h2>
         <button className='text-white bg-cyan-600 hover:bg-cyan-700 px-4 py-2 text-base rounded-md cursor-pointer flex items-center gap-2 transition-colors duration-300'

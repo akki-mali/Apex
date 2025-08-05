@@ -11,7 +11,7 @@ const MyBoardSection = ({myBoard, onRemoveFromBoard}) => {
           My Advisory Board
         </h2>
         
-        <div className="text-center py-12 text-gray-500">
+        <div className="text-center py-12 text-gray-500 border border-gray-200 rounded-lg">
           <h3 className="text-lg font-medium mt-4 mb-2">No advisors in your board yet</h3>
           <p>Browse the advisors section to add world-class mentors to your personal board</p>
         </div>

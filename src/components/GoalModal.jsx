@@ -114,7 +114,7 @@ const GoalModal = ({onClose, onSave}) => {
           </div>
 
           {error && (
-            <div className="text-red-600 mb-4 text-sm font-medium mt-4" role="alert">
+            <div className="text-red-600 mb-4 text-sm font-medium mt-2" role="alert">
               {error}
             </div>
           )}
