@@ -21,7 +21,7 @@ const GoalCard = ({ goal, onToggleKeyResult, onSubmitGoal }) => {
         </div>
   
         <div className="flex gap-4 text-sm text-gray-600">
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 font-medium">
             <Clock size={14} />
             {isSubmitted ? (
               <>Submitted: {new Date(goal.submittedAt).toLocaleDateString()}</>
@@ -50,7 +50,7 @@ const GoalCard = ({ goal, onToggleKeyResult, onSubmitGoal }) => {
             <h4 className="text-sm font-medium text-gray-700">Key Results</h4>
               {goal.keyResults.map((keyResult) => (
                 <div key={keyResult.id} className="flex items-start space-x-3">
-                  <button
+                  <button aria-label="confirm"
                     onClick={() => !isSubmitted && onToggleKeyResult(goal.id, keyResult.id)}
                     className={`cursor-pointer flex-shrink-0 mt-0.5 transition-colors ${
                       isSubmitted 
