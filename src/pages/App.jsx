@@ -55,7 +55,7 @@ const App = () => {
 
   return (
     <div className='min-h-screen bg-gray-50'>
-      <header className='bg-cyan-700 text-white py-18 text-center shadow-lg'>
+      <header className='bg-cyan-700 text-white py-18 text-center shadow-lg px-4'>
         <h1 className='font-bold text-4xl mb-2'>Achiever's Dashboard</h1>
         <p className='text-lg opacity-90 max-w-2xl mx-auto'>Manage your SMART goals and connect with world-class advisors</p>
       </header>
