@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import { Plus, Target} from 'lucide-react';
 import GoalModal from './GoalModal';
 import GoalCard from './GoalCard';

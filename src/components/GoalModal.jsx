@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import { X, Plus, Trash2, Target } from 'lucide-react';
 
 const GoalModal = ({onClose, onSave}) => {
